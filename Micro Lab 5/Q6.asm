@@ -1,0 +1,53 @@
+	   LXI H,8050
+	   MVI A,05
+	   LXI D,0000
+	   LXI B,0000
+
+AGAIN:	   PUSH PSW
+	   MOV A,M
+	   RRC
+	   JC SKIP
+// SUM OF EVEN
+	   MOV A,M
+	   ADD E
+	   MOV E,A
+	   MVI A,00
+	   ADC D
+	   MOV D,A
+	   JMP CONTINUE
+// SUM OF ODD
+
+SKIP:	   MOV A,M
+	   ADD C
+	   MOV C,A
+	   MVI A,00
+	   ADC B
+	   MOV B,A
+// CONTINUE LOOP
+
+CONTINUE:	   INX H
+	   POP PSW
+	   DCR A
+	   JNZ AGAIN
+// STORE AND DISPLAY ODD
+	   MOV A,C
+	   STA 8060
+	   OUT 41
+	   MOV A,B
+	   STA 8061
+	   OUT 40
+	   CALL DELAY
+// STORE AND DISPLAY EVEN
+	   MOV A,E
+	   STA 8070
+	   OUT 51
+	   MOV A,B
+	   STA 8071
+	   OUT 50
+	   HLT
+
+DELAY:	   LXI H,5000
+
+TOP:	   DCX H
+	   JNZ TOP
+	   RET

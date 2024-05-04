@@ -1,0 +1,7 @@
+	   LDA 8020
+	   CPI 7F
+	   JZ HERE
+	   JC HERE
+	   STA 8030
+
+HERE:	   HLT

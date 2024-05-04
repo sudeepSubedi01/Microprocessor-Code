@@ -1,0 +1,11 @@
+Write an assembly program in debug mode to add four 16 bit numbers and test it
+
+A 100
+MOV AX,1563
+MOV BX,4563
+MOV CX,4230
+MOV DX,7896
+ADD AX,BX
+ADD CX,DX
+ADD AX,CX
+INT 20

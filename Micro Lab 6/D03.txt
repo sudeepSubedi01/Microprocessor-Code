@@ -1,0 +1,16 @@
+INITITALLY: 
+E DS:300
+-AB(data)
+E DS:301
+-45(data)
+E DS:302
+-B9(data)
+E DS:303
+-49(data)
+
+A 100
+MOV AX,[300]
+MOV BX,[302]
+ADD AX,BX
+MOV [304],AX
+INT 20

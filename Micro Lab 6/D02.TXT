@@ -1,0 +1,12 @@
+INITITALLY: 
+E DS:300
+-AB(data)
+E DS:301
+-45(data)
+
+A 100
+MOV AL,[300]
+MOV BL,[301]
+ADD AL,BL
+MOV [302],AL
+INT 20

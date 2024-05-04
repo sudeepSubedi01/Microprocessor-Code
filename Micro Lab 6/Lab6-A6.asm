@@ -1,0 +1,28 @@
+TITLE series
+PAGE 60,90
+.MODEL SMALL
+.STACK 100H
+.DATA
+    SUM DW ?
+.CODE
+  MAIN PROC
+    MOV AX,@DATA
+    MOV DS,AX
+     
+    MOV CX,0014H  ;COUNTER
+    MOV DL,0003H  ;MULTIPLIER
+    MOV DH,0002H  ; MULTIPLICAND
+    MOV BX,0000H  ;SUM OF SERIES
+    UP:
+    MOV AL,DL
+    MUL DH
+    ADD BX,AX
+    ADD DL,2
+    ADD DH,2
+    LOOP UP    
+    
+    MOV SUM, 
+    MOV AH,4CH
+    INT 21H   
+   MAIN ENDP
+  END

@@ -1,0 +1,12 @@
+INITITALLY: 
+E DS:202
+-AB(data)
+E DS:204
+-45(data)
+
+A 100
+MOV AL,[202]
+MOV BL,[204]
+SUB AL,BL
+MOV [206],AL
+INT 20
